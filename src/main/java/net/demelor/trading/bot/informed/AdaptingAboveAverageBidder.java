@@ -4,9 +4,10 @@ import auction.Bidder;
 
 /**
  * Bidder implementation that assumes that other bidder would bid an average amount on each round,
- * based on other bidders cash left, and tries to overbid it by smallest value possible.
+ * based on other bidder's cash left, and tries to overbid it by smallest amount possible.
+ * If opponent's bid received differs from expected, tries to correct next bid prediction by calculated difference.
  */
-public class AdaptingAverageBidder implements Bidder {
+public class AdaptingAboveAverageBidder implements Bidder {
 
     private int ownCash;
     private int otherCash;

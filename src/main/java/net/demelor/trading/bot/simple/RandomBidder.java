@@ -4,24 +4,23 @@ import auction.Bidder;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Bidder implementation that just randomly places a bid in range [0, averageBid + 1).
+ */
 public class RandomBidder implements Bidder {
 
-    private final int limit;
-
     private int cash;
-
-    public RandomBidder(int limit) {
-        this.limit = limit;
-    }
+    private int averageBid;
 
     @Override
     public void init(int quantity, int cash) {
         this.cash = cash;
+        averageBid = cash / (quantity / 2);
     }
 
     @Override
     public int placeBid() {
-        return Math.min(ThreadLocalRandom.current().nextInt(limit), cash);
+        return Math.min(ThreadLocalRandom.current().nextInt(averageBid * 2 + 1), cash);
     }
 
     @Override

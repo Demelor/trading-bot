@@ -2,6 +2,9 @@ package net.demelor.trading.bot.simple;
 
 import auction.Bidder;
 
+/**
+ * Bidder implementation that bids available cash amount separated equally among all trading rounds.
+ */
 public class AverageBidder implements Bidder {
 
     private int cash;

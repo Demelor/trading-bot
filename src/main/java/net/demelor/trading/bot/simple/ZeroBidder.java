@@ -2,10 +2,12 @@ package net.demelor.trading.bot.simple;
 
 import auction.Bidder;
 
+/**
+ * Bidder implementation that just places a zero bid each round.
+ */
 public class ZeroBidder implements Bidder {
     @Override
     public void init(int quantity, int cash) {
-
     }
 
     @Override
@@ -15,6 +17,5 @@ public class ZeroBidder implements Bidder {
 
     @Override
     public void bids(int own, int other) {
-
     }
 }
